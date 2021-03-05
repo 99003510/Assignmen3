@@ -1,4 +1,4 @@
-include<stdio.h>
+#include<stdio.h>
 #include <stdio.h>
 #include <semaphore.h>
 #include <stdlib.h>
@@ -85,13 +85,7 @@ int main()
     pthread_create(&pro[i], NULL, (void *)produced, NULL);
     }
      for(int i = 0; i < 8; i++) {
-        pthread_create(&con[i], NULL, (void *)consumed,NULL);
-    }
-     for(int i = 0; i < 8; i++) {
-        pthread_join(pro[i], NULL);
-    }
-    for(int i = 0; i < 8; i++) {
-        pthread_join(con[i], NULL);
+        pthread_create(&con[i], NULL, (void *);
     }
        sem_destroy(&empty);
     sem_destroy(&full);
