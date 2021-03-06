@@ -10,7 +10,7 @@ int peek() {
     return stack_operation[top];
     }
 
-int emptyStack() {
+int ifemptyStack() {
 
    if(top == -1)
       return 1;
@@ -18,7 +18,7 @@ int emptyStack() {
       return 0;
 }
    
-int fullStack() {
+int iffullStack() {
 
    if(top == max_stack)
       return 1;
@@ -32,7 +32,7 @@ int fullStack() {
 int pop() {
    int data;
 	
-   if(!emptyStack()) {
+   if(!ifemptyStack()) {
       data = stack_operation[top];
       top = top - 1;   
       return data;
@@ -43,7 +43,7 @@ int pop() {
 
 int push(int data) {
 
-   if(!fullStack()) {
+   if(!iffullStack()) {
       top = top + 1;   
       stack_operation[top] = data;
    } else {
@@ -97,8 +97,8 @@ int main()
 	pthread_join(pt1,NULL);
 	pthread_join(pt2,NULL);
 	printf("Top of the Stack is %d\n" ,peek());
-	printf("Is it Full stack: %s\n" , fullStack()?"Yes":"No");
-   	printf("Is it    Empty stack: %s\n" , emptyStack()?"Yes":"No");
+	printf("Is it Full stack: %s\n" , iffullStack()?"Yes":"No");
+   	printf("Is it    Empty stack: %s\n" , ifemptyStack()?"Yes":"No");
 	sem_destroy(&s1);
 	pthread_mutex_destroy(&m1);
 	printf("CODE DONE WELL!!\n");
